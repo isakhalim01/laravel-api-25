@@ -12,4 +12,8 @@ class CategoryProduct extends Model
     {
         return $this->hasMany(Product::class);
     }
+    public function ProductVariant()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
 }

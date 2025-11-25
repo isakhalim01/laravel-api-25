@@ -16,7 +16,7 @@ class CategoryProductController extends Controller
         public function index()
         {
             try {
-                $categories = CategoryProduct::all();
+                $categories = CategoryProduct::with('ProductVariant','Product')->get();
     
                 return response()->json([
                     'message' => 'Data kategori berhasil ditampilkan',
@@ -63,7 +63,7 @@ class CategoryProductController extends Controller
         public function show($id)
         {
             try {
-                $category = CategoryProduct::find($id);
+                $category = CategoryProduct::with('ProductVariant','Product')->find($id);
     
                 if (!$category) {
                     return response()->json([
